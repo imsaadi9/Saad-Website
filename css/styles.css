@@ -1,3 +1,67 @@
+
+    /* Add custom styles for the underline */
+    .nav-link {
+      position: relative;
+	  font-size: 14px;
+	  text-transform: uppercase;
+	  letter-spacing: 1pt;
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 4px;
+	  margin-top: 5px;
+      background-color: #124ef1; /* Change the color as needed */
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+	  margin-top: 5px;
+      width: 50%;
+    }
+	@media (max-width: 768px) {
+		.navbar-nav {
+		  background-color: #0a2b86; /* Change the background color as needed */
+		  border-radius: 5px;
+		  padding: 10px;
+		}
+		.navbar-nav .nav-item {
+		  margin-bottom: 5px;
+		  text-align: center;
+		}
+		.nav-link:hover::after, .nav-link.active::after {
+			margin-top: 5px;
+			width: 0;
+		}
+	  }
+
+	.header .text-container .h1-large.animate{
+		animation: moveFromLeft 0.6s ease-in-out;
+	  }
+	  
+	  @keyframes moveFromLeft {
+		from {
+		  transform: translateX(-40%);
+		}
+		to {
+		  transform: translateX(0);
+		}
+	  }
+	
+	.header .text-container .page-scroll.animate{
+		animation: moveFromRight 0.6s ease-in-out;
+	  }
+	  
+	  @keyframes moveFromRight {
+		from {
+		  transform: translateX(100%);
+		}
+		to {
+		  transform: translateX(0);
+		}
+	  }
+
 /* Description: Master CSS file */
 
 /*****************************************
@@ -37,6 +101,8 @@ body,
 html {
     width: 100%;
 	height: 100%;
+	background-color: rgb(245, 242, 225);
+	scroll-behavior: smooth;
 }
 
 body, p {
@@ -139,7 +205,10 @@ a:hover {
 }
 
 .bg-gray {
-	background-color: #f7f9fb;
+	/* background-color: #c6d0db; */
+	background-image: url(../images/nathan-da-silva-oFkRO55PUmo-unsplash\ \(back\).jpg);
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 .section-divider {
@@ -183,6 +252,25 @@ a:hover {
 }
 
 .btn-solid-lg:hover {
+	background-color: transparent;
+	color: #0b36a8; /* needs to stay here because of the color property of a tag */
+	text-decoration: none;
+}
+
+.btn-solid-lg-2 {
+	display: inline-block;
+	padding: 1.6rem 2.500rem 1.6rem 2.500rem;
+	border: 1px solid #0b36a8;
+	background-color: #0b36a8;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 0.9rem;
+	line-height: 0;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.btn-solid-lg-2:hover {
 	background-color: transparent;
 	color: #0b36a8; /* needs to stay here because of the color property of a tag */
 	text-decoration: none;
@@ -487,7 +575,7 @@ input[type='checkbox'] {
 .navbar .fa-stack {
 	width: 2em;
 	margin-right: 0.25rem;
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 }
 
 .navbar .fa-stack-2x {
@@ -521,7 +609,7 @@ input[type='checkbox'] {
 .header {
 	padding-top: 7rem;
 	padding-bottom: 5.5rem;
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../images/header-background.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../images/header-background.jpg') center center no-repeat fixed;
 	background-size: cover;
 	text-align: center;
 }
@@ -565,6 +653,15 @@ input[type='checkbox'] {
 	margin-bottom: 3rem;
 }
 
+.pppp span{
+	color: #0B36A8;
+	font-weight: 500;
+}
+
+.pppp a{
+	text-decoration: none;
+}
+
 .basic-1 .time {
 	margin-bottom: 0.5rem;
 	color: #0b36a8;
@@ -599,8 +696,11 @@ input[type='checkbox'] {
 
 .basic-2 .text-box {
 	margin-bottom: 3rem;
+	/* text-align: center; */
 	padding: 3.5rem 1rem 2.125rem 1rem;
-	border: 1px solid #cfd7de;
+	/* border: 2px solid #749dbe; */
+	border-radius: 30px;
+	background-color: #869ddb37;
 }
 
 .basic-2 .fas,
@@ -619,28 +719,30 @@ input[type='checkbox'] {
 /*     Details     */
 /*******************/
 .split .area-1 {
-	height: 430px;
-	background: linear-gradient(to bottom right, rgba(25, 26, 29, 0.5), rgba(25, 26, 29, 0.5)), url('../images/details-background.jpg') center center no-repeat;
+	height: 450px;
+	background: linear-gradient(to bottom right, rgba(247, 247, 247, 0), rgba(25, 26, 29, 0)), url('../images/details-background.jpg.png') center center no-repeat;
 	background-size: cover;
 }
 
 .split .area-2 {
-	padding-top: 7.75rem;
-	padding-bottom: 7.75rem;
+	padding-top: 5rem;
+	padding-bottom: 5.5rem;
 }
 
 .split p {
-	margin-bottom: 2.25rem;
+	margin-bottom: 2rem;
 }
 
 .split .icons-container {
-	margin-top: 3rem;
+	margin-top: 2rem;
 }
 
 .split .icons-container img {
 	width: 50px;
 	margin-right: 0.625rem;
-	margin-bottom: 0.75rem;
+}
+.split .icon-main-container{
+	margin-top: 3rem;
 }
 
 
@@ -854,8 +956,8 @@ input[type='checkbox'] {
 /*     Footer     */
 /******************/
 .footer {
-	padding-top: 6.25rem;
-	padding-bottom: 2rem;
+	padding-top: 3.25rem;
+	padding-bottom: 1rem;
 	background-color: #24262a;
 	text-align: center;
 }
